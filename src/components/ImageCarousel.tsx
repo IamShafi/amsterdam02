@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 // import { cn } from "@/lib/utils";
 
 // Import local images
-import tour1 from "../../public/walking-tour/tour-1.webp";
-import tour2 from "../../public/walking-tour/tour-2.webp";
-import tour3 from "../../public/walking-tour/tour-3.webp";
-import tour4 from "../../public/walking-tour/tour-4.webp";
-import tour5 from "../../public/walking-tour/tour-5.webp";
+import tour1 from "../../public/walking-tour/tour-1.jpg";
+import tour2 from "../../public/walking-tour/tour-2.jpg";
+import tour3 from "../../public/walking-tour/tour-3.jpg";
+import tour4 from "../../public/walking-tour/tour-4.jpg";
+import tour5 from "../../public/walking-tour/tour-5.jpg";
 
 interface ImageCarouselProps {
   images?: {

@@ -112,6 +112,7 @@
 
 /* ---------- COMPONENT TOKENS USING @theme ---------- */
 @theme inline {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
   --border-radius-lg: var(--radius);
   --border-radius-md: calc(var(--radius) - 2px);
   --border-radius-sm: calc(var(--radius) - 4px);
