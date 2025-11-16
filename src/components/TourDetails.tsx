@@ -1,7 +1,30 @@
 import React from "react";
 import Header from "./Header";
 import ImageCarousel from "./ImageCarousel";
-import { Clock, Star, MapPin, Globe, Check, Shield, Users, Cookie, Utensils, Lightbulb, BookOpen, Waves, Store, MessageCircle, UsersRound, Flag, Coins, CreditCard, Banknote } from "lucide-react";
+import {
+  Clock,
+  Star,
+  MapPin,
+  Globe,
+  Check,
+  Shield,
+  Users,
+  Cookie,
+  Utensils,
+  Lightbulb,
+  BookOpen,
+  Waves,
+  Store,
+  MessageCircle,
+  UsersRound,
+  Flag,
+  Coins,
+  CreditCard,
+  Banknote,
+} from "lucide-react";
+import Explore from "./TourDetails/Explore";
+import TourCost from "./TourDetails/TourCost";
+import TravelersCarousel from "./TourDetails/TravelersCarousel";
 
 const TourDetails = () => {
   return (
@@ -54,6 +77,15 @@ const TourDetails = () => {
                 </div>
               </div>
             </div>
+
+            {/* What You'll Explore */}
+            <Explore />
+
+            {/* How Much Does This Tour Cost */}
+            <TourCost />
+
+            {/* Happy Travelers Carousel */}
+            <TravelersCarousel />
           </div>
         </div>
       </div>
