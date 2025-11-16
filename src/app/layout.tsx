@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 // ---- SEO Metadata ---- //
 export const metadata: Metadata = {
@@ -10,16 +11,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Masterdam Tours" }],
   openGraph: {
     type: "website",
-    title:
-      "Masterdam Tours - Free Walking Tours Amsterdam | Pay What You Want",
+    title: "Masterdam Tours - Free Walking Tours Amsterdam | Pay What You Want",
     description:
       "Discover Amsterdam with passionate local guides. Free walking tours daily. Explore the Red Light District, canals, and hidden gems. Pay what you want. 20,000+ happy travelers.",
   },
   twitter: {
     card: "summary_large_image",
     site: "@lovable_dev",
-    title:
-      "Masterdam Tours - Free Walking Tours Amsterdam | Pay What You Want",
+    title: "Masterdam Tours - Free Walking Tours Amsterdam | Pay What You Want",
     description:
       "Discover Amsterdam with passionate local guides. Free walking tours daily. Explore the Red Light District, canals, and hidden gems. Pay what you want. 20,000+ happy travelers.",
   },
@@ -38,7 +37,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Preconnect */}
-        <link rel="preconnect" href="https://uqaxivqaphztmnmroqbv.supabase.co" />
+        <link
+          rel="preconnect"
+          href="https://uqaxivqaphztmnmroqbv.supabase.co"
+        />
         <link
           rel="preconnect"
           href="https://ckgsdkifvijxxvjlhsaa.supabase.co"
@@ -59,7 +61,7 @@ export default function RootLayout({
       </head>
 
       <body className="font-sans antialiased">
-        {children}
+        <ReactQueryProvider>{children}</ReactQueryProvider>
 
         {/* Deferred Google Analytics */}
         <Script id="ga-init" strategy="afterInteractive">

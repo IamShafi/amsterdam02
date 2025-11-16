@@ -1,35 +1,73 @@
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Header from "./Header";
+import Footer from "./Footer";
 import ImageCarousel from "./ImageCarousel";
-import {
-  Clock,
-  Star,
-  MapPin,
-  Globe,
-  Check,
-  Shield,
-  Users,
-  Cookie,
-  Utensils,
-  Lightbulb,
-  BookOpen,
-  Waves,
-  Store,
-  MessageCircle,
-  UsersRound,
-  Flag,
-  Coins,
-  CreditCard,
-  Banknote,
-} from "lucide-react";
+import { Clock, Star, Check } from "lucide-react";
 import Explore from "./TourDetails/Explore";
 import TourCost from "./TourDetails/TourCost";
 import TravelersCarousel from "./TourDetails/TravelersCarousel";
 import TourItinerary from "./TourDetails/TourItinerary";
 import FAQ from "./TourDetails/FAQ";
 import MapSection from "./TourDetails/MapSection";
+import { getImagesByCategory } from "@/lib/api/imageService";
+import { highlights, itinerary, faqs, includes } from "@/lib/mockdata";
+import Testimonials from "./TourDetails/Testimonials";
+import YourExperience from "./TourDetails/YourExperience";
 
 const TourDetails = () => {
+  const [visibleReviews, setVisibleReviews] = useState(4);
+  const [shouldPreloadCalendar, setShouldPreloadCalendar] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Fetch tour carousel images from database
+  const { data: tourImages, isLoading: tourImagesLoading } = useQuery({
+    queryKey: ["tour-images"],
+    queryFn: () => getImagesByCategory("tour"),
+  });
+
+  // Fetch group images from database
+  const { data: groupImages, isLoading: groupImagesLoading } = useQuery({
+    queryKey: ["group-images"],
+    queryFn: () => getImagesByCategory("group"),
+  });
+
+   // Fetch testimonials from JSON file
+   const { data: testimonials, isLoading: testimonialsLoading } = useQuery({
+    queryKey: ["tour-testimonials"],
+    queryFn: async () => {
+      const response = await fetch("/data/tour-testimonials.json");
+      if (!response.ok) throw new Error("Failed to fetch testimonials");
+      return response.json();
+    },
+    staleTime: 1000 * 60 * 60, // Cache for 1 hour
+  });
+
+  // Preload calendar after page content has loaded
+  useEffect(() => {
+    console.log("GroupImages", groupImages, "tourImages", tourImages, 'testimonials', testimonials);
+
+    if (!tourImagesLoading && !groupImagesLoading && !shouldPreloadCalendar) {
+      const timer = setTimeout(() => {
+        setShouldPreloadCalendar(true);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [tourImagesLoading, groupImagesLoading, shouldPreloadCalendar]);
+
+  const carouselImages =
+    tourImages?.map((img) => ({
+      src: img.image_url,
+      alt: img.alt_text,
+    })) || [];
+
+ 
+
   return (
     <div className="min-h-[100svh] min-h-[calc(var(--vh,1vh)*100)] bg-background pb-24 lg:pb-0">
       <Header />
@@ -82,19 +120,33 @@ const TourDetails = () => {
             </div>
 
             {/* What You'll Explore */}
-            <Explore />
+            <Explore highlights={highlights} />
 
             {/* How Much Does This Tour Cost */}
             <TourCost />
 
             {/* Happy Travelers Carousel */}
-            <TravelersCarousel />
+            <TravelersCarousel
+              groupImages={groupImages}
+              groupImagesLoading={groupImagesLoading}
+            />
+
+            {/* Your Experience Includes */}
+            <YourExperience />
+
+            {/* Testimonials */}
+            <Testimonials
+              testimonials={testimonials}
+              testimonialsLoading={testimonialsLoading}
+              visibleReviews={visibleReviews}
+              setVisibleReviews={setVisibleReviews}
+            />
 
             {/* Tour Itinerary */}
-            <TourItinerary />
+            <TourItinerary itinerary={itinerary} />
 
             {/* FAQ */}
-            <FAQ />
+            <FAQ faqs={faqs} />
 
             {/* Map Section */}
             <MapSection />
@@ -113,7 +165,7 @@ const TourDetails = () => {
       {/* Calendar Preloader - loads calendar in background after page loads */}
       {/* {shouldPreloadCalendar && <CalendarPreloader />} */}
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

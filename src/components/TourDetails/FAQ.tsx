@@ -1,13 +1,24 @@
 import React from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-const FAQ = () => {
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+const FAQ = ({ faqs }: { faqs: Faq[] }) => {
   return (
     <div>
       <h2 className="text-2xl md:text-3xl font-bold mb-6">
         Frequently Asked Questions
       </h2>
       <Accordion type="single" collapsible className="w-full">
-        {/* {faqs.map((faq, index) => (
+        {faqs.map((faq, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
@@ -20,7 +31,7 @@ const FAQ = () => {
               {faq.answer}
             </AccordionContent>
           </AccordionItem>
-        ))} */}
+        ))}
       </Accordion>
     </div>
   );

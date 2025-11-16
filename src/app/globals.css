@@ -20,8 +20,8 @@
    --color-secondary: 0 0% 97%;
    --color-secondary-foreground: 218 25% 15%;
  
-   --color-muted: 210 20% 96%;
-   --color-muted-foreground: 218 15% 50%;
+   --color-muted: #f3f5f7;
+   --color-muted-foreground: #6c7a93;
  
    --color-accent: 20 92% 53%;
    --color-accent-foreground: 0 0% 100%;
@@ -29,8 +29,8 @@
    --color-destructive: 0 84% 60%;
    --color-destructive-foreground: 0 0% 100%;
  
-   --color-border: 214 20% 90%;
-   --color-input: 214 20% 90%;
+   --color-border: #e0e5eb;
+   --color-input: #e0e5eb;
    --color-ring: 20 92% 53%;
  
    /* Sidebar Colors */
@@ -135,4 +135,10 @@
   --animate-fade-in-left: fade-in-left 0.5s ease-out;
   --animate-fade-in-horizontal: fade-in-horizontal 0.3s ease-out;
   --animate-scale-in: scale-in 0.3s ease-out;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
 }
