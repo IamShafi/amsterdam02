@@ -4,44 +4,43 @@
 /* ---------- THEME VARIABLES (LIGHT & DARK) ---------- */
 @theme {
    /* Core Colors */
-   --color-mint-500: oklch(0.72 0.11 178);
-   --color-background: oklch(0 0% 99%);
-   --color-foreground: 218 25% 15%;
+   --color-background: #fcfcfc;
+   --color-foreground: #1D2430;
  
-   --color-card: 0 0% 100%;
-   --color-card-foreground: 218 25% 15%;
+   --color-card: #FFFFFF;
+   --color-card-foreground: #1D2430;
  
-   --color-popover: 0 0% 100%;
-   --color-popover-foreground: 218 25% 15%;
+   --color-popover:  #FFFFFF;
+   --color-popover-foreground: #1D2430;
  
    --color-primary: #f56219;
-   --color-primary-foreground: 0 0% 100%;
+   --color-primary-foreground: #FFFFFF;
  
-   --color-secondary: 0 0% 97%;
-   --color-secondary-foreground: 218 25% 15%;
+   --color-secondary: #f7f7f7;
+   --color-secondary-foreground: #1D2430;
  
    --color-muted: #f3f5f7;
    --color-muted-foreground: #6c7a93;
  
-   --color-accent: 20 92% 53%;
-   --color-accent-foreground: 0 0% 100%;
+   --color-accent: #33eb7c; /* HSL(20 92% 53%) approximate HEX */
+   --color-accent-foreground: #FFFFFF;
  
-   --color-destructive: 0 84% 60%;
-   --color-destructive-foreground: 0 0% 100%;
+   --color-destructive: #ff4d4d; /* HSL(0 84% 60%) approximate HEX */
+   --color-destructive-foreground: #FFFFFF;
  
    --color-border: #e0e5eb;
    --color-input: #e0e5eb;
-   --color-ring: 20 92% 53%;
+   --color-ring: #33eb7c;
  
    /* Sidebar Colors */
-   --color-sidebar-background: 0 0% 98%;
-   --color-sidebar-foreground: 240 5.3% 26.1%;
-   --color-sidebar-primary: 240 5.9% 10%;
-   --color-sidebar-primary-foreground: 0 0% 98%;
-   --color-sidebar-accent: 240 4.8% 95.9%;
-   --color-sidebar-accent-foreground: 240 5.9% 10%;
-   --color-sidebar-border: 220 13% 91%;
-   --color-sidebar-ring: 217.2 91.2% 59.8%;
+   --color-sidebar-background: #fafafa; /* HSL(0 0% 98%) */
+   --color-sidebar-foreground: #434648; /* HSL(240 5.3% 26.1%) */
+   --color-sidebar-primary: #1b1c1d; /* HSL(240 5.9% 10%) */
+   --color-sidebar-primary-foreground: #fafafa;
+   --color-sidebar-accent: #f5f5f4; /* HSL(240 4.8% 95.9%) */
+   --color-sidebar-accent-foreground: #1b1c1d;
+   --color-sidebar-border: #dde0e6; /* HSL(220 13% 91%) */
+   --color-sidebar-ring: #f2f99d; /* HSL(217.2 91.2% 59.8%) */
  
    /* Border Radius */
    --radius-lg: 0.5rem;
