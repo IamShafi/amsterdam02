@@ -15,6 +15,8 @@ import { getImagesByCategory } from "@/lib/api/imageService";
 import { highlights, itinerary, faqs, includes } from "@/lib/mockdata";
 import Testimonials from "./TourDetails/Testimonials";
 import YourExperience from "./TourDetails/YourExperience";
+import BookingSidebar from "./TourDetails/BookingSidebar";
+import MobileBookingBar from "./TourDetails/MobileBookingBar";
 
 const TourDetails = () => {
   const [visibleReviews, setVisibleReviews] = useState(4);
@@ -154,13 +156,13 @@ const TourDetails = () => {
 
           {/* Booking Sidebar - Desktop Only */}
           <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
-            {/* <BookingSidebar /> */}
+            <BookingSidebar />
           </div>
         </div>
       </div>
 
       {/* Mobile Booking Bar */}
-      {/* <MobileBookingBar /> */}
+      <MobileBookingBar />
 
       {/* Calendar Preloader - loads calendar in background after page loads */}
       {/* {shouldPreloadCalendar && <CalendarPreloader />} */}
