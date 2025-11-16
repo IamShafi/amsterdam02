@@ -25,6 +25,9 @@ import {
 import Explore from "./TourDetails/Explore";
 import TourCost from "./TourDetails/TourCost";
 import TravelersCarousel from "./TourDetails/TravelersCarousel";
+import TourItinerary from "./TourDetails/TourItinerary";
+import FAQ from "./TourDetails/FAQ";
+import MapSection from "./TourDetails/MapSection";
 
 const TourDetails = () => {
   return (
@@ -86,9 +89,31 @@ const TourDetails = () => {
 
             {/* Happy Travelers Carousel */}
             <TravelersCarousel />
+
+            {/* Tour Itinerary */}
+            <TourItinerary />
+
+            {/* FAQ */}
+            <FAQ />
+
+            {/* Map Section */}
+            <MapSection />
+          </div>
+
+          {/* Booking Sidebar - Desktop Only */}
+          <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+            {/* <BookingSidebar /> */}
           </div>
         </div>
       </div>
+
+      {/* Mobile Booking Bar */}
+      {/* <MobileBookingBar /> */}
+
+      {/* Calendar Preloader - loads calendar in background after page loads */}
+      {/* {shouldPreloadCalendar && <CalendarPreloader />} */}
+
+      {/* <Footer /> */}
     </div>
   );
 };

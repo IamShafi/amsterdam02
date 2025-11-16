@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { LazySection } from "@/components/LazySection";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -13,27 +12,26 @@ import {
 
 const TravelersCarousel = () => {
   return (
-    <LazySection>
-      <div>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">
-          21,000+ Happy Travelers
-        </h2>
-        <div className="overflow-hidden">
-          <Carousel
-            opts={{
-              loop: true,
-              align: "start",
-            }}
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: true,
-              }),
-            ]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-3">
-              {/* {groupImagesLoading ? (
+    <div>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">
+        21,000+ Happy Travelers
+      </h2>
+      <div className="overflow-hidden">
+        <Carousel
+          opts={{
+            loop: true,
+            align: "start",
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: true,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-2 md:-ml-3">
+            {/* {groupImagesLoading ? (
                         <div className="flex justify-center w-full py-8">
                           <Skeleton className="h-64 w-full" />
                         </div>
@@ -58,11 +56,10 @@ const TravelersCarousel = () => {
                           );
                         })
                       )} */}
-            </CarouselContent>
-          </Carousel>
-        </div>
+          </CarouselContent>
+        </Carousel>
       </div>
-    </LazySection>
+    </div>
   );
 };
 
