@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Check, Loader2, Calendar, Users } from "lucide-react";
 import { addDays, format, isToday } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
@@ -11,10 +13,10 @@ import { TourTimeCards } from "./booking/TourTimeCards";
 import { checkAvailability } from "@/lib/api/bookingService";
 import { formatDateForAPI } from "@/lib/utils/dateTimeHelpers";
 import type { AvailabilityResponse } from "@/types/booking";
-import React from "react";
+
 
 const BookingSidebar = () => {
-  // const navigate = useNavigate();
+  const router = useRouter();
   const [step, setStep] = useState<"date" | "guests" | "tours">("date");
   const [date, setDate] = useState<Date>();
   const [guests, setGuests] = useState(2);
@@ -48,7 +50,7 @@ const BookingSidebar = () => {
           const entries = list.getEntries();
           if (entries.length > 0) {
             // LCP has fired, now we can safely fetch availability
-            console.log('✅ LCP detected, fetching availability...');
+            // console.log('✅ LCP detected, fetching availability...');
             
             // Use requestIdleCallback for additional safety
             if ('requestIdleCallback' in window) {
@@ -151,7 +153,7 @@ const BookingSidebar = () => {
         date: formatDateForAPI(date),
         guests: guests.toString(),
       });
-      // navigate(`/book-private-tour?${params.toString()}`);
+      router.push(`/book-private-tour?${params.toString()}`);
       return;
     }
 
@@ -180,7 +182,7 @@ const BookingSidebar = () => {
       potentialBigGroup: hasSelectedOver6.toString(),
     });
 
-    // navigate(`/booking?${params.toString()}`);
+    router.push(`/booking?${params.toString()}`);
   };
 
   return (

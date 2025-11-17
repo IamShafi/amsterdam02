@@ -1,12 +1,16 @@
 import React from "react";
 import { Skeleton } from "../ui/skeleton";
 import TestimonialCard from "./TestimonialCard";
+
 type Testimonial = {
   name: string;
   location: string;
-  review: string;
   rating: number;
-  // add other fields if exist
+  comment: string;
+  date: string;
+  avatar?: string;
+  verified?: boolean;
+  tourName?: string;
 };
 
 type TestimonialsProps = {
@@ -57,7 +61,7 @@ const Testimonials = ({
               .filter((t) => t.location && t.location.trim() !== "")
               .slice(0, visibleReviews)
               .map((testimonial, index) => (
-                <TestimonialCard comment={""} date={""} key={index} {...testimonial} />
+                <TestimonialCard key={index} {...testimonial} />
               ))}
           </div>
           {visibleReviews <

@@ -12,11 +12,14 @@ import TourItinerary from "./TourDetails/TourItinerary";
 import FAQ from "./TourDetails/FAQ";
 import MapSection from "./TourDetails/MapSection";
 import { getImagesByCategory } from "@/lib/api/imageService";
-import { highlights, itinerary, faqs, includes } from "@/lib/mockdata";
+import { highlights, itinerary, faqs, includes, mockTestimonials } from "@/lib/mockdata";
 import Testimonials from "./TourDetails/Testimonials";
 import YourExperience from "./TourDetails/YourExperience";
 import BookingSidebar from "./TourDetails/BookingSidebar";
 import MobileBookingBar from "./TourDetails/MobileBookingBar";
+import { Testimonial } from "@/types/testimonial";
+import CalendarPreloader from "./TourDetails/CalendarPreloader";
+
 
 const TourDetails = () => {
   const [visibleReviews, setVisibleReviews] = useState(4);
@@ -42,9 +45,13 @@ const TourDetails = () => {
    const { data: testimonials, isLoading: testimonialsLoading } = useQuery({
     queryKey: ["tour-testimonials"],
     queryFn: async () => {
-      const response = await fetch("/data/tour-testimonials.json");
-      if (!response.ok) throw new Error("Failed to fetch testimonials");
-      return response.json();
+      // const response = await fetch("/data/tour-testimonials.json");
+      // if (!response.ok) throw new Error("Failed to fetch testimonials");
+      // return response.json();
+
+      return new Promise<Testimonial[]>((resolve) =>
+        setTimeout(() => resolve(mockTestimonials), 400)
+      );
     },
     staleTime: 1000 * 60 * 60, // Cache for 1 hour
   });
@@ -165,7 +172,7 @@ const TourDetails = () => {
       <MobileBookingBar />
 
       {/* Calendar Preloader - loads calendar in background after page loads */}
-      {/* {shouldPreloadCalendar && <CalendarPreloader />} */}
+      {shouldPreloadCalendar && <CalendarPreloader />}
 
       <Footer />
     </div>

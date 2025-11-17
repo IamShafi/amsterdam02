@@ -4,4 +4,7 @@ export interface Testimonial {
   rating: number;
   comment: string;
   date: string;
+  avatar?: string;
+  verified?: boolean;
+  tourName?: string;
 }
