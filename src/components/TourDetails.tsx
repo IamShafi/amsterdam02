@@ -1,3 +1,4 @@
+// this is a test performance page
 "use client";
 import dynamic from "next/dynamic";
 
@@ -156,12 +157,12 @@ const TourDetails = () => {
             <YourExperience />
 
             {/* Testimonials */}
-            <Testimonials
+            {/* <Testimonials
               testimonials={testimonials}
               testimonialsLoading={testimonialsLoading}
               visibleReviews={visibleReviews}
               setVisibleReviews={setVisibleReviews}
-            />
+            /> */}
 
             {/* Tour Itinerary */}
             
