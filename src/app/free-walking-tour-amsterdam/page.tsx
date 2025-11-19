@@ -1,12 +1,14 @@
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
 import FAQ from "@/components/TourDetails/FAQ";
 import MapSection from "@/components/TourDetails/MapSection";
 import MobileBookingBar from "@/components/TourDetails/MobileBookingBar";
 import RatingTitle from "@/components/TourDetails/RatingTitle";
 import TourCost from "@/components/TourDetails/TourCost";
-import YourExperience from "@/components/TourDetails/YourExperience";
+const YourExperience = dynamic(() => import("../../components/TourDetails/YourExperience"));
 
 // import TourDetails from "@/components/TourDetails";
 import { faqs } from "@/lib/mockdata";
@@ -26,15 +28,15 @@ const TourDetailsPage = () => {
           {/* Main Content */}
           <div className="lg:col-span-8 space-y-10 md:space-y-12">
             {/* Title & Rating */}
-            {/* <RatingTitle /> */}
+            <RatingTitle />
             {/* What You'll Explore */}
 
             {/* How Much Does This Tour Cost */}
-            {/* <TourCost /> */}
+            <TourCost />
             {/* Happy Travelers Carousel */}
             
             {/* Your Experience Includes */}
-            {/* <YourExperience /> */}
+            <YourExperience />
 
             {/* Testimonials */}
 
