@@ -36,9 +36,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          :root { --color-background: #fcfcfc; --color-foreground: #1d2430; }
+        `,
+          }}
+        ></style>
+
         {/* ---------------------------------------------- */}
         {/*  PRECONNECT (always before preload)             */}
         {/* ---------------------------------------------- */}
+        <link rel="preload" href="/_next/static/css/716864fe.css" as="style" />
 
         {/* Supabase (API, auth, db) */}
         <link

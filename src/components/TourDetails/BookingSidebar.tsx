@@ -187,7 +187,7 @@ const BookingSidebar = () => {
 
   return (
     <div
-      className="h-[calc(100vh-59px)] overflow-y-auto bg-card border rounded-xl p-6 shadow-lg space-y-4 will-change-transform"
+      className="h-[calc(100vh-59px)] overflow-y-auto bg-card border border-black rounded-xl p-6 shadow-lg space-y-4 will-change-transform"
       style={{ contain: "layout paint" }} // Removed 'size' for better flexibility
     >
       {/* Price Header - Always Visible */}
