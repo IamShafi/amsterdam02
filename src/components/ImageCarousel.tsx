@@ -13,7 +13,7 @@ import tour2 from "../../public/walking-tour/tour-2.jpg";
 import tour3 from "../../public/walking-tour/tour-3.jpg";
 import tour4 from "../../public/walking-tour/tour-4.jpg";
 import tour5 from "../../public/walking-tour/tour-5.jpg";
-
+//webp same images
 import Mobiletour1 from "../../public/walking-tour/tour-1.webp";
 import Mobiletour2 from "../../public/walking-tour/tour-2.webp";
 import Mobiletour3 from "../../public/walking-tour/tour-3.webp";

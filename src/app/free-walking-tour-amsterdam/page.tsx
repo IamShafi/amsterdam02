@@ -1,7 +1,13 @@
 import Header from "@/components/Header";
 import ImageCarousel from "@/components/ImageCarousel";
-// import TourDetails from "@/components/TourDetails";
+import FAQ from "@/components/TourDetails/FAQ";
+import MapSection from "@/components/TourDetails/MapSection";
+import RatingTitle from "@/components/TourDetails/RatingTitle";
+import TourCost from "@/components/TourDetails/TourCost";
+import YourExperience from "@/components/TourDetails/YourExperience";
 
+// import TourDetails from "@/components/TourDetails";
+import { faqs } from "@/lib/mockdata";
 
 const TourDetailsPage = () => {
   return (
@@ -10,7 +16,35 @@ const TourDetailsPage = () => {
       {/* Hero Carousel */}
       <div className="overflow-hidden">
         {/* use default images */}
-        <ImageCarousel />
+        {/* <ImageCarousel /> */}
+      </div>
+      {/* Below the fold */}
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 max-w-7xl bg-background rounded-t-2xl relative z-10 -mt-[15px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-8 space-y-10 md:space-y-12">
+            {/* Title & Rating */}
+            <RatingTitle />
+            {/* What You'll Explore */}
+
+            {/* How Much Does This Tour Cost */}
+            <TourCost />
+            {/* Happy Travelers Carousel */}
+            
+            {/* Your Experience Includes */}
+            <YourExperience />
+
+            {/* Testimonials */}
+
+            {/* Tour Itinerary */}
+
+            {/* FAQ */}
+            <FAQ faqs={faqs} />
+
+            {/* Map Section */}
+            <MapSection />
+          </div>
+        </div>
       </div>
       {/* <TourDetails /> */}
     </div>
