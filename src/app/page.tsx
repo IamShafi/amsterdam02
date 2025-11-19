@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -90,13 +91,24 @@ const Home = () => {
 
             {/* Right: Hero Image */}
             <div className="order-2">
-              <div className="relative -mx-4 sm:-mx-6 md:mx-0">
-                <img
+              <div className="hidden md:block relative -mx-4 sm:-mx-6 md:mx-0">
+                <Image
                   src={"/assets/hero-grid.png"}
                   alt="Amsterdam walking tour experiences - group photos at iconic locations"
                   className="w-full h-auto object-contain rounded-none md:rounded-xl"
                   width="1184"
                   height="789"
+                  fetchPriority="high"
+                />
+              </div>
+              {/* mobile webp */}
+              <div className="block md:hidden relative w-full max-w-[501px] -mx-4 sm:-mx-6 md:mx-0">
+                <Image
+                  src={"/assets/hero-grid.webp"}
+                  alt="Amsterdam walking tour experiences - group photos at iconic locations"
+                  className="w-full h-auto object-contain rounded-none md:rounded-xl"
+                  width="501"
+                  height="498"
                   fetchPriority="high"
                 />
               </div>
