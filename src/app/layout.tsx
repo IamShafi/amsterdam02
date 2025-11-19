@@ -48,7 +48,8 @@ export default function RootLayout({
         {/*  PRECONNECT (always before preload)             */}
         {/* ---------------------------------------------- */}
         <link rel="preload" href="/_next/static/css/716864fe.css" as="style" />
-
+        <link rel="preload" as="image" href="/masterdam-logo-transparent.png" />
+        <link rel="preload" as="image" href="/assets/hero-grid.webp" />
         {/* Supabase (API, auth, db) */}
         <link
           rel="preconnect"

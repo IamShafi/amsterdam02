@@ -91,25 +91,33 @@ const Home = () => {
 
             {/* Right: Hero Image */}
             <div className="order-2">
-              <div className="hidden md:block relative -mx-4 sm:-mx-6 md:mx-0">
+              {/* Desktop hero image */}
+              <div className="hidden md:block relative">
                 <Image
-                  src={"/assets/hero-grid.png"}
+                  src="/assets/hero-grid.webp" // use WebP for smaller size
                   alt="Amsterdam walking tour experiences - group photos at iconic locations"
-                  className="w-full h-auto object-contain rounded-none md:rounded-xl"
-                  width="1184"
-                  height="789"
-                  fetchPriority="high"
+                  className="w-full h-auto object-contain rounded-xl"
+                  width={662} // match displayed width
+                  height={441} // match displayed height
+                  priority={true} // ensures it's not lazy-loaded
+                  quality={75} // reduces file size without noticeable loss
+                  placeholder="blur" // optional: shows blurry placeholder while loading
+                  blurDataURL="/assets/hero-grid-blur.png" // small blurred version
                 />
               </div>
-              {/* mobile webp */}
-              <div className="block md:hidden relative w-full max-w-[501px] -mx-4 sm:-mx-6 md:mx-0">
+
+              {/* Mobile hero image */}
+              <div className="block md:hidden relative w-full max-w-[501px]">
                 <Image
-                  src={"/assets/hero-grid.webp"}
+                  src="/assets/hero-grid.webp"
                   alt="Amsterdam walking tour experiences - group photos at iconic locations"
-                  className="w-full h-auto object-contain rounded-none md:rounded-xl"
-                  width="501"
-                  height="498"
-                  fetchPriority="high"
+                  className="w-full h-auto object-contain rounded-xl"
+                  width={501}
+                  height={498}
+                  priority={true}
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL="/assets/hero-grid-blur.png"
                 />
               </div>
             </div>
