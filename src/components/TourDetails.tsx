@@ -141,7 +141,7 @@ const TourDetails = () => {
             </div>
 
             {/* What You'll Explore */}
-            <Explore highlights={highlights} />
+            <Explore />
 
             {/* How Much Does This Tour Cost */}
             <TourCost />
@@ -164,7 +164,7 @@ const TourDetails = () => {
             />
 
             {/* Tour Itinerary */}
-            <TourItinerary itinerary={itinerary} />
+            
 
             {/* FAQ */}
             <FAQ faqs={faqs} />

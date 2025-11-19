@@ -1,9 +1,7 @@
 import React from "react";
-const Explore = ({
-  highlights,
-}: {
-  highlights: { icon: any; text: string }[];
-}) => {
+import { highlights } from "@/lib/mockdata";
+
+const Explore = () => {
   return (
     <div className="!mt-6">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">

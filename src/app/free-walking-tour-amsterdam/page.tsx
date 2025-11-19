@@ -10,6 +10,11 @@ import { faqs } from "@/lib/mockdata";
 import YourExperience from "@/components/TourDetails/YourExperience";
 import FAQ from "@/components/TourDetails/FAQ";
 import MapSection from "@/components/TourDetails/MapSection";
+import Explore from "@/components/TourDetails/Explore";
+import TravelersCarousel from "@/components/TourDetails/TravelersCarousel";
+import TourItinerary from "@/components/TourDetails/TourItinerary";
+import BookingSidebar from "@/components/TourDetails/BookingSidebar";
+import Testimonials from "@/components/TourDetails/Testimonials";
 
 const TourDetailsPage = () => {
   return (
@@ -28,23 +33,28 @@ const TourDetailsPage = () => {
             {/* Title & Rating */}
             <RatingTitle />
             {/* What You'll Explore */}
+            <Explore />
 
             {/* How Much Does This Tour Cost */}
             <TourCost />
             {/* Happy Travelers Carousel */}
-            
+            <TravelersCarousel />
             {/* Your Experience Includes */}
             <YourExperience />
 
             {/* Testimonials */}
-
+            <Testimonials />
             {/* Tour Itinerary */}
-
+            <TourItinerary />
             {/* FAQ */}
             <FAQ faqs={faqs} />
 
             {/* Map Section */}
             <MapSection />
+          </div>
+          {/* Booking Sidebar - Desktop Only */}
+          <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+            <BookingSidebar />
           </div>
         </div>
       </div>

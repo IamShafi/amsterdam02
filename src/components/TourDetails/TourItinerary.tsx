@@ -1,13 +1,13 @@
 import React from "react";
 import { MapPin, Flag } from "lucide-react";
-
+import { itinerary } from "@/lib/mockdata";
 interface ItineraryStop {
   number: number;
   title: string;
   description: string;
 }
 
-const TourItinerary = ({ itinerary }: { itinerary: ItineraryStop[] }) => {
+const TourItinerary = () => {
   return (
     <div>
       <div className="mb-8">

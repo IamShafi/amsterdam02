@@ -1,5 +1,8 @@
 "use client";
-import React from "react";
+
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getImagesByCategory } from "@/lib/api/imageService";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -22,10 +25,12 @@ type TravelersCarouselProps = {
   groupImagesLoading: boolean;
 };
 
-const TravelersCarousel = ({
-  groupImages,
-  groupImagesLoading,
-}: TravelersCarouselProps) => {
+const TravelersCarousel = () => {
+  // Fetch group images from database
+  const { data: groupImages, isLoading: groupImagesLoading } = useQuery({
+    queryKey: ["group-images"],
+    queryFn: () => getImagesByCategory("group"),
+  });
   return (
     <div>
       <h2 className="text-2xl md:text-3xl font-bold mb-6">

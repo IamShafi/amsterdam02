@@ -1,6 +1,10 @@
-import React from "react";
+'use client';
+
+import { useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import TestimonialCard from "./TestimonialCard";
+import { mockTestimonials } from "@/lib/mockdata";
+import { useQuery } from "@tanstack/react-query";
 
 type Testimonial = {
   name: string;
@@ -20,12 +24,23 @@ type TestimonialsProps = {
   setVisibleReviews: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const Testimonials = ({
-  testimonials,
-  testimonialsLoading,
-  visibleReviews,
-  setVisibleReviews,
-}: TestimonialsProps) => {
+const Testimonials = () => {
+  const [visibleReviews, setVisibleReviews] = useState(4);
+   // Fetch testimonials from JSON file
+   const { data: testimonials, isLoading: testimonialsLoading } = useQuery({
+    queryKey: ["tour-testimonials"],
+    queryFn: async () => {
+      // const response = await fetch("/data/tour-testimonials.json");
+      // if (!response.ok) throw new Error("Failed to fetch testimonials");
+      // return response.json();
+
+      return new Promise<Testimonial[]>((resolve) =>
+        setTimeout(() => resolve(mockTestimonials), 400)
+      );
+    },
+    staleTime: 1000 * 60 * 60, // Cache for 1 hour
+  });
+
   return (
     <div>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0 mb-6">
