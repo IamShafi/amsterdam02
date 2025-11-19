@@ -23,7 +23,7 @@ import TourCost from "./TourDetails/TourCost";
 import { Testimonial } from "@/types/testimonial";
 import CalendarPreloader from "./TourDetails/CalendarPreloader";
 
-const TravelersCarousel = dynamic(() => import("./TourDetails/TravelersCarousel"));
+// const TravelersCarousel = dynamic(() => import("./TourDetails/TravelersCarousel"));
 const Explore = dynamic(() => import("./TourDetails/Explore"));
 const Testimonials = dynamic(() => import("./TourDetails/Testimonials"));
 const TourItinerary = dynamic(() => import("./TourDetails/TourItinerary"));
@@ -147,10 +147,10 @@ const TourDetails = () => {
             <TourCost />
 
             {/* Happy Travelers Carousel */}
-            <TravelersCarousel
+            {/* <TravelersCarousel
               groupImages={groupImages}
               groupImagesLoading={groupImagesLoading}
-            />
+            /> */}
 
             {/* Your Experience Includes */}
             <YourExperience />
