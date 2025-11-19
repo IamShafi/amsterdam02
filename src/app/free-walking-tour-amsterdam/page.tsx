@@ -23,7 +23,7 @@ const TourDetailsPage = () => {
       {/* Hero Carousel */}
       <div className="overflow-hidden">
         {/* use default images */}
-        {/* <ImageCarousel /> */}
+        <ImageCarousel />
       </div>
       {/* Below the fold */}
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 max-w-7xl bg-background rounded-t-2xl relative z-10 -mt-[15px]">
