@@ -105,7 +105,7 @@ const ImageCarousel = ({ images, onShowAllClick }: ImageCarouselProps) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
                 {/* show for mobile */}
-                <div className="md:hidden block MobiledefaultImages relative w-[300px] h-[288px] md:h-[360px] rounded-lg overflow-hidden">
+                <div className="md:hidden block MobiledefaultImages relative h-[288px] md:h-[360px] rounded-lg overflow-hidden">
                   <Image
                     src={image.src}
                     alt={image.alt}
