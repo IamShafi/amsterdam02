@@ -19,6 +19,7 @@ import BookingSidebar from "./TourDetails/BookingSidebar";
 import MobileBookingBar from "./TourDetails/MobileBookingBar";
 import { Testimonial } from "@/types/testimonial";
 import CalendarPreloader from "./TourDetails/CalendarPreloader";
+import { Skeleton } from "./ui/skeleton";
 
 
 const TourDetails = () => {
@@ -87,6 +88,7 @@ const TourDetails = () => {
         ) : (
           <ImageCarousel images={carouselImages} />
         )} */}
+        {/* use default image */}
         <ImageCarousel
         // images={carouselImages}
         />

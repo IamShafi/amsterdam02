@@ -36,10 +36,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect */}
+        {/* ---------------------------------------------- */}
+        {/*  PRECONNECT (always before preload)             */}
+        {/* ---------------------------------------------- */}
+
+        {/* Supabase (API, auth, db) */}
         <link
           rel="preconnect"
           href="https://uqaxivqaphztmnmroqbv.supabase.co"
+          crossOrigin="anonymous"
         />
         <link
           rel="preconnect"
@@ -51,7 +56,21 @@ export default function RootLayout({
           href="https://ckgsdkifvijxxvjlhsaa.supabase.co"
         />
 
-        {/* Preload LCP images */}
+        {/* Analytics preconnect (saves 100–150ms) */}
+        <link
+          rel="preconnect"
+          href="https://www.googletagmanager.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://www.clarity.ms"
+          crossOrigin="anonymous"
+        />
+
+        {/* ---------------------------------------------- */}
+        {/*  PRELOAD (LCP image)                           */}
+        {/* ---------------------------------------------- */}
         <link
           rel="preload"
           href="/assets/walking-tour/tour-1.webp"
@@ -63,7 +82,9 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ReactQueryProvider>{children}</ReactQueryProvider>
 
-        {/* Deferred Google Analytics */}
+        {/* ---------------------------------------------- */}
+        {/*  GOOGLE ANALYTICS (Non-blocking)               */}
+        {/* ---------------------------------------------- */}
         <Script id="ga-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -78,7 +99,9 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
 
-        {/* Microsoft Clarity */}
+        {/* ---------------------------------------------- */}
+        {/*  MICROSOFT CLARITY (Optimized)                 */}
+        {/* ---------------------------------------------- */}
         <Script id="clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
