@@ -3,12 +3,12 @@ import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
-import FAQ from "@/components/TourDetails/FAQ";
-import MapSection from "@/components/TourDetails/MapSection";
 import MobileBookingBar from "@/components/TourDetails/MobileBookingBar";
 import RatingTitle from "@/components/TourDetails/RatingTitle";
 import TourCost from "@/components/TourDetails/TourCost";
 const YourExperience = dynamic(() => import("../../components/TourDetails/YourExperience"));
+const FAQ = dynamic(() => import("../../components/TourDetails/FAQ"));
+const MapSection = dynamic(() => import("../../components/TourDetails/MapSection"), { ssr: false });
 
 // import TourDetails from "@/components/TourDetails";
 import { faqs } from "@/lib/mockdata";
@@ -43,19 +43,19 @@ const TourDetailsPage = () => {
             {/* Tour Itinerary */}
 
             {/* FAQ */}
-            {/* <FAQ faqs={faqs} /> */}
+            <FAQ faqs={faqs} />
 
             {/* Map Section */}
-            {/* <MapSection /> */}
+            <MapSection />
           </div>
         </div>
       </div>
 
       {/* Mobile Booking Bar */}
-      {/* <MobileBookingBar /> */}
+      <MobileBookingBar />
 
       {/* <TourDetails /> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
