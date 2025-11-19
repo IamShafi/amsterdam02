@@ -14,6 +14,11 @@ import tour3 from "../../public/walking-tour/tour-3.jpg";
 import tour4 from "../../public/walking-tour/tour-4.jpg";
 import tour5 from "../../public/walking-tour/tour-5.jpg";
 
+import Mobiletour1 from "../../public/walking-tour/tour-1.webp";
+import Mobiletour2 from "../../public/walking-tour/tour-2.webp";
+import Mobiletour3 from "../../public/walking-tour/tour-3.webp";
+import Mobiletour4 from "../../public/walking-tour/tour-4.webp";
+import Mobiletour5 from "../../public/walking-tour/tour-5.webp";
 interface ImageCarouselProps {
   images?: {
     src: string;
@@ -86,7 +91,7 @@ const ImageCarousel = ({ images, onShowAllClick }: ImageCarouselProps) => {
                 key={index}
                 className="flex-[0_0_85%] md:flex-[0_0_32%] min-w-0 pr-2 md:pr-3"
               >
-                <div className="defaultImages relative h-[288px] md:h-[360px] rounded-lg overflow-hidden">
+                <div className="hidden md:block defaultImages relative h-[288px] md:h-[360px] rounded-lg overflow-hidden">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -95,6 +100,20 @@ const ImageCarousel = ({ images, onShowAllClick }: ImageCarouselProps) => {
                     height={height}
                     fetchPriority={index === 0 ? "high" : "auto"}
                     loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                {/* show for mobile */}
+                <div className="md:hidden block MobiledefaultImages relative w-[300px] h-[288px] md:h-[360px] rounded-lg overflow-hidden">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    width={width}
+                    height={height}
+                    fetchPriority={"high"}
+                    loading={"eager"}
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
